@@ -1,33 +1,32 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import {Router} from '@angular/router';
-
+import { LoaderPage } from './loader.page';
 import { IonicModule } from '@ionic/angular';
-import { HomePage } from './home.page';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 
-describe('HomePage', () => {
-  let component: HomePage;
-  let fixture: ComponentFixture<HomePage>;
+describe('LoaderPage', () => {
+  let component: LoaderPage;
+  let fixture: ComponentFixture<LoaderPage>;
   let router: Router;
 
-  beforeEach(waitForAsync( () => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [HomePage],
+      declarations: [LoaderPage],
       imports: [
         IonicModule.forRoot(),
         AppRoutingModule
       ]
     })
-
-    fixture = TestBed.createComponent(HomePage);
+    fixture = TestBed.createComponent(LoaderPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
+
     router = TestBed.get(Router);
   }));
 
   it('should create', () => {
     spyOn(router,'navigate');
     component.ngOnInit();
-    expect(router.navigate).toHaveBeenCalledWith(['chat']);
+    expect(router.navigate).toHaveBeenCalledWith(['home']);
   });
 });

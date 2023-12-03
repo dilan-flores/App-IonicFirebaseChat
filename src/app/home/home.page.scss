@@ -25,3 +25,25 @@
 #container a {
   text-decoration: none;
 }
+
+.custom-card {
+  margin: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+ion-card ion-img {
+  height: 50%;
+  //object-fit: cover;
+}
+
+
+ion-card{
+  padding: 8%;
+  border-radius: 20px;
+  border: solid;
+  border-color: #0f4f64;
+}
+
+
+

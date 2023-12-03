@@ -1,20 +1,38 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Perfil
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+  <!-- <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
-  </ion-header>
+  </ion-header> -->
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card>
+    <ion-img src="https://res.cloudinary.com/dh7xuwoyg/image/upload/v1700979498/perfil/FOTO_nzrlhw.png"></ion-img>
+
+    <ion-card-header>
+      <!-- Contenido de la primera tarjeta -->
+      <ion-card-title>Dilan Flores</ion-card-title>
+    </ion-card-header>
+
+    <ion-button expand="full" class="button" (click)="home()">Click me</ion-button>
+
+  </ion-card>
+
+  <ion-card>
+    <ion-img src="../assets/splash.jpg"></ion-img>
+
+    <ion-card-header>
+      <!-- Contenido de la segunda tarjeta -->
+      <ion-card-title>Contenido de la segunda tarjeta</ion-card-title>
+    </ion-card-header>
+
+    <ion-button expand="full" class="button" (click)="home()">Click me</ion-button>
+  </ion-card>
 </ion-content>
