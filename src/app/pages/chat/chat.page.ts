@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
+import { Observable } from 'rxjs';
+import { ChatService } from '../../services/chat.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-chat',
@@ -6,11 +10,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.page.scss'],
 })
 export class ChatPage implements OnInit {
+  @ViewChild(IonContent) content!: IonContent;
 
-  constructor() { }
+  messages!: Observable<any[]>;  // Uso del modificador de no nulo
+  newMsg = '';
+
+  constructor(private chatService: ChatService, private router: Router) { }
 
   ngOnInit() {
-    console.log('Initializing ChatPage');
+    this.messages = this.chatService.getChatMessages();
   }
 
+  sendMessage() {
+    this.chatService.addChatMessage({ msg: this.newMsg }).then(() => {
+      this.newMsg = '';
+      this.content.scrollToBottom();
+    });
+  }
+
+  signOut() {
+    this.chatService.signOut().then(() => {
+      this.router.navigate(['home']);
+    });
+  }
+  
 }

@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder} from '@angular/forms';
 import { Router } from '@angular/router';
-import {
-  ActionPerformed,
-  PushNotificationSchema,
-  PushNotifications,
-  Token,
-} from '@capacitor/push-notifications';
+import { ChatService } from '../services/chat.service';
 
 @Component({
   selector: 'app-home',
@@ -13,12 +9,18 @@ import {
   styleUrls: ['home.page.scss'],
 })
 export class HomePage implements OnInit {
-  constructor(private router:Router) {}
+  credentialForm!: FormGroup;
+
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private chatService: ChatService) {}
 
   ngOnInit() {
     console.log('Initializing HomePage');
   }
-  home(){
-    this.router.navigate(['chat'])
+  home(user: string) {
+    this.chatService
+    .signIn(user);
+    this.router.navigate(['chat']);
   }
 }
